@@ -1,48 +1,115 @@
 using UnityEngine;
 
+[System.Serializable]
+public class QuizData
+{
+    public AudioClip sound; // 鳴き声
+    public string answer;   // "LIGHT1" または "LIGHT2"
+}
+
 public class QuizManager : MonoBehaviour
 {
-    private string[] answers =
-    {
-        "LIGHT1",
-        "LIGHT2",
-        "LIGHT1"
-    };
+    [Header("問題データ")]
+    [SerializeField] private QuizData[] quizzes;
 
-    private int currentQuestion = 0;
+    [Header("鳴き声用AudioSource")]
+    [SerializeField] private AudioSource animalAudioSource;
 
-    [SerializeField] private SceneController sceneController;
+    [Header("効果音用AudioSource")]
+    [SerializeField] private AudioSource seAudioSource;
+
+    [Header("正解音")]
+    [SerializeField] private AudioClip correctSE;
+
+    [Header("不正解音")]
+    [SerializeField] private AudioClip wrongSE;
+
+    private int currentQuizIndex = 0;
+    private string currentAnswer;
+
+    // 回答待ち状態
+    private bool waitingForAnswer = false;
+
+    // スコア
+    private int correctCount = 0;
+    private int wrongCount = 0;
 
     public void CheckAnswer(string data)
     {
-        // 全問題終了済みなら何もしない
-        if (currentQuestion >= answers.Length)
+        // 手が近づいたら問題再生
+        if (data == "CLOSE")
+        {
+            if (!waitingForAnswer)
+            {
+                PlayQuiz();
+            }
+
+            return;
+        }
+
+        // 問題が出ていなければ回答不可
+        if (!waitingForAnswer)
         {
             return;
         }
 
+        // 回答判定
         if (data == "LIGHT1" || data == "LIGHT2")
         {
-            // 正解
-            if (data == answers[currentQuestion])
+            if (data == currentAnswer)
             {
-                Debug.Log((currentQuestion + 1) + "問目 正解！");
+                Debug.Log("正解！");
 
-                currentQuestion++;
+                correctCount++;
 
-                // 全問終了チェック
-                if (currentQuestion >= answers.Length)
+                if (correctSE != null)
                 {
-                    Debug.Log("全問題終了！");
-
-                    sceneController.ChangeScene();
+                    seAudioSource.PlayOneShot(correctSE);
                 }
             }
-            // 不正解
             else
             {
-                Debug.Log((currentQuestion + 1) + "問目 外れ！");
+                Debug.Log("不正解！");
+
+                wrongCount++;
+
+                if (wrongSE != null)
+                {
+                    seAudioSource.PlayOneShot(wrongSE);
+                }
             }
+
+            Debug.Log($"正解数: {correctCount}  不正解数: {wrongCount}");
+
+            // 次の問題へ
+            currentQuizIndex++;
+
+            // 最後まで行ったら先頭へ戻る
+            if (currentQuizIndex >= quizzes.Length)
+            {
+                currentQuizIndex = 0;
+            }
+
+            waitingForAnswer = false;
         }
+    }
+
+    void PlayQuiz()
+    {
+        if (quizzes == null || quizzes.Length == 0)
+        {
+            Debug.LogWarning("問題が登録されていません");
+            return;
+        }
+
+        animalAudioSource.clip = quizzes[currentQuizIndex].sound;
+        animalAudioSource.Play();
+
+        currentAnswer = quizzes[currentQuizIndex].answer;
+
+        waitingForAnswer = true;
+
+        Debug.Log($"問題 {currentQuizIndex}");
+        Debug.Log($"正解は {currentAnswer}");
     }
 }
