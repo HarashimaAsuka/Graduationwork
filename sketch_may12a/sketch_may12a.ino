@@ -9,6 +9,9 @@ const int buttonPin = 7;//ボタン
 double duration = 0;
 double distance = 0;
 
+bool wasBright1 = false;
+bool wasBright2 = false;
+
 void setup()
 {
   Serial.begin(9600);
@@ -66,16 +69,24 @@ void loop()
   }
 
   // 照度センサー1
-  if (light1 > 300)
+  bool isBright1 = (light1 < 300);
+
+  if (isBright1 && !wasBright1)
   {
-    Serial.println("LIGHT1");
+      Serial.println("LIGHT1");
   }
 
+  wasBright1 = isBright1;
+
   // 照度センサー2
-  if (light2 > 300)
+  bool isBright2 = (light2 < 300);
+
+  if (isBright2 && !wasBright2)
   {
-    Serial.println("LIGHT2");
+      Serial.println("LIGHT2");
   }
+
+  wasBright2 = isBright2;
 
   // 赤外線センサー
   if (ir == HIGH)
