@@ -54,7 +54,7 @@ public class QuizManager : MonoBehaviour
         }
 
         // 回答判定
-        if (data == "LIGHT1" || data == "LIGHT2")
+        if (data.StartsWith("LIGHT"))
         {
             if (data == currentAnswer)
             {
@@ -63,9 +63,7 @@ public class QuizManager : MonoBehaviour
                 correctCount++;
 
                 if (correctSE != null)
-                {
                     seAudioSource.PlayOneShot(correctSE);
-                }
             }
             else
             {
@@ -74,21 +72,15 @@ public class QuizManager : MonoBehaviour
                 wrongCount++;
 
                 if (wrongSE != null)
-                {
                     seAudioSource.PlayOneShot(wrongSE);
-                }
             }
 
             Debug.Log($"正解数: {correctCount}  不正解数: {wrongCount}");
 
-            // 次の問題へ
             currentQuizIndex++;
 
-            // 最後まで行ったら先頭へ戻る
             if (currentQuizIndex >= quizzes.Length)
-            {
                 currentQuizIndex = 0;
-            }
 
             waitingForAnswer = false;
         }
