@@ -43,7 +43,10 @@ public class QuizManager : MonoBehaviour
             {
                 PlayQuiz();
             }
-
+            else
+            {
+                ReplayQuiz();
+            }
             return;
         }
 
@@ -65,15 +68,6 @@ public class QuizManager : MonoBehaviour
                 if (correctSE != null)
                     seAudioSource.PlayOneShot(correctSE);
             }
-            else
-            {
-                Debug.Log("不正解！");
-
-                wrongCount++;
-
-                if (wrongSE != null)
-                    seAudioSource.PlayOneShot(wrongSE);
-            }
 
             Debug.Log($"正解数: {correctCount}  不正解数: {wrongCount}");
 
@@ -83,6 +77,18 @@ public class QuizManager : MonoBehaviour
                 currentQuizIndex = 0;
 
             waitingForAnswer = false;
+        }
+
+        else
+        {
+            Debug.Log("不正解！");
+
+            wrongCount++;
+
+            if (wrongSE != null)
+                seAudioSource.PlayOneShot(wrongSE);
+
+            Debug.Log($"正解数: {correctCount}  不正解数: {wrongCount}");
         }
     }
 
@@ -103,5 +109,15 @@ public class QuizManager : MonoBehaviour
 
         Debug.Log($"問題 {currentQuizIndex}");
         Debug.Log($"正解は {currentAnswer}");
+    }
+
+    void ReplayQuiz()
+    {
+        if (animalAudioSource.isPlaying)
+            animalAudioSource.Stop();
+
+        animalAudioSource.Play();
+
+        Debug.Log("鳴き声を再生");
     }
 }

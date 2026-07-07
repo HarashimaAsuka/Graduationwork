@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 1381920141}
   - component: {fileID: 1381920140}
   - component: {fileID: 1381920142}
+  - component: {fileID: 1381920143}
   m_Layer: 0
   m_Name: QuizManager
   m_TagString: Untagged
@@ -293,10 +294,18 @@ MonoBehaviour:
     answer: LIGHT1
   - sound: {fileID: 8300000, guid: 19d6726ff0350d14d9cc2a5c61345288, type: 3}
     answer: LIGHT2
-  - sound: {fileID: 8300000, guid: c7d8c315c67242f438fa17d6dc7bcfe8, type: 3}
-    answer: LIGHT2
+  - sound: {fileID: 8300000, guid: 9f3d13629b583eb449699c188120dc5d, type: 3}
+    answer: LIGHT6
   - sound: {fileID: 8300000, guid: 62f96ea55f927484ead3643b5d839366, type: 3}
-    answer: LIGHT1
+    answer: LIGHT4
+  - sound: {fileID: 8300000, guid: 6d990a322fdc2424f8de5b8953ee02b9, type: 3}
+    answer: LIGHT5
+  - sound: {fileID: 8300000, guid: 8dda71ceeefe4614c9f75f955523866f, type: 3}
+    answer: LIGHT7
+  - sound: {fileID: 8300000, guid: c7d8c315c67242f438fa17d6dc7bcfe8, type: 3}
+    answer: LIGHT3
+  - sound: {fileID: 8300000, guid: 32c701bb3ac51054a81c22364573b3cb, type: 3}
+    answer: LIGHT8
   animalAudioSource: {fileID: 1381920142}
   seAudioSource: {fileID: 1381920142}
   correctSE: {fileID: 8300000, guid: 9bdf9d34dba21bc47b57ed7e2b1e823a, type: 3}
@@ -413,6 +422,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &1381920143
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381920139}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1708017895
 GameObject:
   m_ObjectHideFlags: 0
