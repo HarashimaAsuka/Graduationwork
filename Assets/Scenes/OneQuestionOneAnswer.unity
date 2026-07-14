@@ -294,22 +294,33 @@ MonoBehaviour:
     answer: LIGHT1
   - sound: {fileID: 8300000, guid: 19d6726ff0350d14d9cc2a5c61345288, type: 3}
     answer: LIGHT2
-  - sound: {fileID: 8300000, guid: 9f3d13629b583eb449699c188120dc5d, type: 3}
-    answer: LIGHT6
+  - sound: {fileID: 8300000, guid: c7d8c315c67242f438fa17d6dc7bcfe8, type: 3}
+    answer: LIGHT3
   - sound: {fileID: 8300000, guid: 62f96ea55f927484ead3643b5d839366, type: 3}
     answer: LIGHT4
   - sound: {fileID: 8300000, guid: 6d990a322fdc2424f8de5b8953ee02b9, type: 3}
     answer: LIGHT5
+  - sound: {fileID: 8300000, guid: 9f3d13629b583eb449699c188120dc5d, type: 3}
+    answer: LIGHT6
   - sound: {fileID: 8300000, guid: 8dda71ceeefe4614c9f75f955523866f, type: 3}
     answer: LIGHT7
-  - sound: {fileID: 8300000, guid: c7d8c315c67242f438fa17d6dc7bcfe8, type: 3}
-    answer: LIGHT3
   - sound: {fileID: 8300000, guid: 32c701bb3ac51054a81c22364573b3cb, type: 3}
     answer: LIGHT8
   animalAudioSource: {fileID: 1381920142}
   seAudioSource: {fileID: 1381920142}
-  correctSE: {fileID: 8300000, guid: 9bdf9d34dba21bc47b57ed7e2b1e823a, type: 3}
-  wrongSE: {fileID: 8300000, guid: cb4a5e54470c5f245bae416192679f11, type: 3}
+  correctSE: {fileID: 0}
+  wrongSE: {fileID: 8300000, guid: e1d962eb22ffe774e86054841571641d, type: 3}
+  progressVoices:
+  - {fileID: 8300000, guid: 89ce209931b5c7e4da38063b79b64c76, type: 3}
+  - {fileID: 8300000, guid: 40eab34f782a0ce4899b61c52723c173, type: 3}
+  - {fileID: 8300000, guid: 7425499022d1d824385b7b99bb603a53, type: 3}
+  - {fileID: 8300000, guid: 11ea2d533f4771c4aa5352c3417faf2d, type: 3}
+  - {fileID: 8300000, guid: 7df75125d1adeb24387efdd0ea2b7ac2, type: 3}
+  - {fileID: 8300000, guid: 3fdf7817986e2d341beea014c519c5d0, type: 3}
+  - {fileID: 8300000, guid: 7cdaffd1e9fb35144bfff3d77d62ff1c, type: 3}
+  - {fileID: 8300000, guid: 795c60980864436449e3bfd8bc552acd, type: 3}
+  completeVoice: {fileID: 8300000, guid: 0fb19794b110eed4d93f0b5e70cb36aa, type: 3}
+  resetTime: 60
 --- !u!4 &1381920141
 Transform:
   m_ObjectHideFlags: 0
