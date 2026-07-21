@@ -292,7 +292,7 @@ MonoBehaviour:
   quizzes:
   - sound: {fileID: 8300000, guid: 75a55ace706ad4848b946b82d0fbd402, type: 3}
     answer: LIGHT1
-  - sound: {fileID: 8300000, guid: 19d6726ff0350d14d9cc2a5c61345288, type: 3}
+  - sound: {fileID: 8300000, guid: a08dc3b41de0dda428433a9f09bd9aa6, type: 3}
     answer: LIGHT2
   - sound: {fileID: 8300000, guid: c7d8c315c67242f438fa17d6dc7bcfe8, type: 3}
     answer: LIGHT3
@@ -304,7 +304,7 @@ MonoBehaviour:
     answer: LIGHT6
   - sound: {fileID: 8300000, guid: 8dda71ceeefe4614c9f75f955523866f, type: 3}
     answer: LIGHT7
-  - sound: {fileID: 8300000, guid: 32c701bb3ac51054a81c22364573b3cb, type: 3}
+  - sound: {fileID: 8300000, guid: 07c6c1deba94ed94ca0ea35c1c946361, type: 3}
     answer: LIGHT8
   animalAudioSource: {fileID: 1381920142}
   seAudioSource: {fileID: 1381920142}

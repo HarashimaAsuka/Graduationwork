@@ -90,7 +90,7 @@ void loop()
   Serial.print(distance);
   Serial.println(" cm");
 
-  bool isClose = (distance <= 10);
+  bool isClose = (distance <= 5);
   
   if(isClose && !wasClose)
   {
